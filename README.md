@@ -13,7 +13,7 @@ node index.js
 
 You will need to create an env file with the following info
 
-ID=<Numbers>  
+ID=112233445566 
 DURATION='?weeks=2' <--- change number to have more or less matches
 
 you can obtain the relevent ID from this page (https://www.walsall.gov.uk/Waste/bincollections) by entering a valid postcode.
