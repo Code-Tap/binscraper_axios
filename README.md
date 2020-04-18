@@ -8,7 +8,7 @@ yarn install
 ```
 run with 
 ```bash
-node index.js
+yarn run start
 ```
 
 You will need to create an env file with the following info
