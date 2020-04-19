@@ -5,14 +5,14 @@ from datetime import datetime
 from time import sleep
 
 def date_bin(currdate, currfulldate):
-    firstLetter = ''
-    secondLetter = ''
+    firstLetter = ' '
+    secondLetter = ' '
     match = False
 
     try:
         data = openJSON()
     except:
-        break
+        return
 
     for i in data:
         if i['bin'] == 'Grey Bin (General waste)':
@@ -35,10 +35,11 @@ def date_bin(currdate, currfulldate):
     binletters = "{}{}".format(firstLetter, secondLetter)
     fourletterphat.print_str("{}{}".format(currdate, binletters))
     if match:
-        fourletterphat.show()
         binday = True
     else:
         binday = False
+    
+    fourletterphat.show()
 
 def weekday(currday):
     scrollphat.write_string("{}".format(currday), 0)
@@ -52,8 +53,8 @@ def dimHats():
     scrollphat.set_brightness(1)
 
 def brightenHats():
-    fourletterphat.set_brightness(15)
-    scrollphat.set_brightness(15)
+    fourletterphat.set_brightness(14)
+    scrollphat.set_brightness(14)
 
 def openJSON():
     with open("../binDates.json", "r") as read_file:
@@ -61,9 +62,9 @@ def openJSON():
     return data
 
 
-prevday = datetime.today().weekday()
+prevday = 0
 delta_hour = 0
-binday = false
+binday = False
 
 
 weekdays = {
@@ -76,32 +77,34 @@ weekdays = {
         6:"Sun"
         }
 
+dimHats()
+
 while True:
-    now_hour = datetime.datetime.now().hour
+    now_hour = datetime.now().hour
 
     if delta_hour != now_hour:
 
         currday = datetime.today().weekday()
-        currdate = datetime.today().date()
+        currdate = datetime.today().day
         currfulldate = datetime.today().strftime('%d/%m/%Y')
 
         if currday > prevday:
-            prevday = currday
-            data = openJSON()
+            delta_day = currday
 
         weekday(weekdays[currday])
         date_bin(currdate, currfulldate)
 
     delta_hour = now_hour
 
-    time.sleep(60)
+    sleep(60)
 
-    if delta_hour > 0 and < 7:
-        clearHats()
-    if delta_hour > 7 not binday:
-        dimHats()
-    if delta_hour > 7 and binday and < 8:
-        brightenHats()
-    if delta_hour > 8 and binday:
-        dimHats()
+    # if delta_hour > 0 or delta_hour < 7:
+    #     clearHats()
+
+    # if delta_hour > 7 and not binday:
+    #     dimHats()
+    # if delta_hour > 7 and binday or delta_hour < 8 and binday:
+    #     brightenHats()
+    # if delta_hour > 8 and binday:
+    #     dimHats()
 

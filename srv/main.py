@@ -6,14 +6,14 @@ from time import sleep
 
 def date_bin(currdate, currfulldate):
     # TODO : Parse json for data
-    firstLetter = ''
-    secondLetter = ''
+    firstLetter = ' '
+    secondLetter = ' '
     match = False
 
     try:
         data = openJSON()
     except:
-        break
+        return
 
     for i in data:
         if i['bin'] == 'Grey Bin (General waste)':
@@ -41,6 +41,8 @@ def date_bin(currdate, currfulldate):
     else:
         binday = False
 
+    fourletterphat.show()
+
 def weekday(currday):
     scrollphat.write_string(f"{currday}", 0)
     
@@ -62,9 +64,9 @@ def openJSON():
     return data
 
 
-prevday = datetime.today().weekday()
+delta_day = 0
 delta_hour = 0
-binday = false
+binday = False
 
 
 weekdays = {
@@ -77,32 +79,33 @@ weekdays = {
         6:"Sun"
         }
 
+dimHats()
+
 while True:
-    now_hour = datetime.datetime.now().hour
+    now_hour = datetime.now().hour
 
     if delta_hour != now_hour:
 
         currday = datetime.today().weekday()
-        currdate = datetime.today().date()
+        currdate = datetime.today().day
         currfulldate = datetime.today().strftime('%d/%m/%Y')
 
         if currday > prevday:
-            prevday = currday
-            data = openJSON()
+            delta_day = currday
 
         weekday(weekdays[currday])
         date_bin(currdate, currfulldate)
 
     delta_hour = now_hour
 
-    time.sleep(60)
+    sleep(60)
 
-    if delta_hour > 0 and < 7:
-        clearHats()
-    if delta_hour > 7 not binday:
-        dimHats()
-    if delta_hour > 7 and binday and < 8:
-        brightenHats()
-    if delta_hour > 8 and binday:
-        dimHats()
+    # if delta_hour > 0 or delta_hour < 7:
+    #     clearHats()
+    # if delta_hour > 7 and not binday:
+    #     dimHats()
+    # if delta_hour > 7 and binday or delta_hour < 8 and binday:
+    #     brightenHats()
+    # if delta_hour > 8 and binday:
+    #     dimHats()
 
