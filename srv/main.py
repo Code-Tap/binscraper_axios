@@ -16,19 +16,19 @@ def date_bin(currdate, currfulldate):
         break
 
     for i in data:
-...     if i['bin'] == 'Grey Bin (General waste)':
+        if i['bin'] == 'Grey Bin (General waste)':
             if i['date'] == currfulldate:
                 firstLetter = 'G'
                 match = True
-...             # print(i['bin'], '==', i['day'], '==', i['date'])
+                # print(i['bin'], '==', i['day'], '==', i['date'])
     for i in data:
-...     if i['bin'] == '240Ltr Green Bin (Recycling)':
+        if i['bin'] == '240Ltr Green Bin (Recycling)':
             if i['date'] == currfulldate:
                 secondLetter = 'G'
                 match = True
 
     for i in data:
-...     if i['bin'] == '240Ltr Brown Bin (Garden waste)':
+        if i['bin'] == '240Ltr Brown Bin (Garden waste)':
             if i['date'] == currfulldate:
                 secondLetter = 'B'
                 match = True
