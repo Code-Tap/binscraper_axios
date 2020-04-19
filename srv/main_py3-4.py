@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import scrollphat
 import fourletterphat
 import json
