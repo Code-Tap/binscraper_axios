@@ -7,7 +7,6 @@ from datetime import datetime
 from time import sleep
 
 def date_bin(currdate, currfulldate):
-    # TODO : Parse json for data
     firstLetter = ' '
     secondLetter = ' '
     match = False
@@ -22,7 +21,7 @@ def date_bin(currdate, currfulldate):
             if i['date'] == currfulldate:
                 firstLetter = 'G'
                 match = True
-                # print(i['bin'], '==', i['day'], '==', i['date'])
+
     for i in data:
         if i['bin'] == '240Ltr Green Bin (Recycling)':
             if i['date'] == currfulldate:
@@ -38,7 +37,6 @@ def date_bin(currdate, currfulldate):
     binletters = f"{firstLetter}{secondLetter}"
     fourletterphat.print_str(f"{currdate}{binletters}")
     if match:
-        fourletterphat.show()
         binday = True
     else:
         binday = False
@@ -57,8 +55,8 @@ def dimHats():
     scrollphat.set_brightness(1)
 
 def brightenHats():
-    fourletterphat.set_brightness(15)
-    scrollphat.set_brightness(15)
+    fourletterphat.set_brightness(14)
+    scrollphat.set_brightness(14)
 
 def openJSON():
     with open("../binDates.json", "r") as read_file:

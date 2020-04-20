@@ -21,7 +21,7 @@ def date_bin(currdate, currfulldate):
             if i['date'] == currfulldate:
                 firstLetter = 'G'
                 match = True
-                # print(i['bin'], '==', i['day'], '==', i['date'])
+
     for i in data:
         if i['bin'] == '240Ltr Green Bin (Recycling)':
             if i['date'] == currfulldate:
