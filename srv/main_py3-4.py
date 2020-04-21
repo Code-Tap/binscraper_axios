@@ -14,6 +14,9 @@ def date_bin(currdate, currfulldate):
     try:
         data = openJSON()
     except:
+        binletters = "{}{}".format(firstLetter, secondLetter)
+        fourletterphat.print_str("{}{}".format(currdate, binletters))
+        fourletterphat.show()
         return
 
     for i in data:
