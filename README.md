@@ -22,7 +22,7 @@ run with
 yarn run all
 ```
 
-Build the docker container:
+Alternatively Build the docker container:
 ```bash
 docker build -t bintool .
 ```
@@ -33,5 +33,16 @@ docker run -d --privileged --restart=always bintool
 The ```--privileged``` flag is required to allow the docker container to access the GPIO Pins of the raspberry pi.
 
 
+Parts List for project:
+
+- Raspberry pi
+- RaspIO Full pHAT
+- Pimoroni Scroll pHAT
+- Pimoroni Four Letter pHAT
+- Web Connectivity
+
+![Parts Used](/readme/parts.jpg)
+![projectExample1](/readme/proj1.jpg)
+![projectExample2](/readme/proj2.jpg)
 
 
