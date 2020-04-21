@@ -1,18 +1,14 @@
-FROM node:12.16.2-alpine3.11 AS build
+FROM arm32v6/node:12-alpine
 
 RUN apk add --update --no-cache \
-    python3 \
-    make \
-    g++\
-    yarn && \
-    pip3 install --upgrade pip setuptools
+    python3 &&\
+    pip3 install --upgrade pip \
+    setuptools \
+    smbus \
+    scrollphat \
+    fourletterphat
 
 WORKDIR /src
-COPY ./package* ./
-
-RUN yarn install --frozen-lockfile && \
-    pip3 install scrollphat fourletterphat
-
 COPY . .
-
+RUN yarn install --frozen-lockfile
 CMD ["yarn","run","all"]
