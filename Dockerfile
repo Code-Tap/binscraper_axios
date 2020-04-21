@@ -1,10 +1,11 @@
 FROM arm32v6/node:12-alpine
 
 RUN apk add --update --no-cache \
-    python3 &&\
+    python3 \
+    py3-smbus &&\
     pip3 install --upgrade pip \
     setuptools \
-    smbus \
+    smbus2 \
     scrollphat \
     fourletterphat
 

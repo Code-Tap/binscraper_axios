@@ -90,7 +90,7 @@ while True:
         currdate = datetime.today().day
         currfulldate = datetime.today().strftime('%d/%m/%Y')
 
-        if currday > prevday:
+        if currday > delta_day:
             delta_day = currday
 
         weekday(weekdays[currday])
