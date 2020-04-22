@@ -44,5 +44,3 @@ Parts List for project:
 ![Parts Used](/readme/parts.jpg)
 ![projectExample1](/readme/proj1.jpg)
 ![projectExample2](/readme/proj2.jpg)
-
-
