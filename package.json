@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": ">=0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "node-cron": "^2.0.3"
